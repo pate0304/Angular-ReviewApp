@@ -43,7 +43,7 @@ app.controller('Ctrl', ['$translate', '$scope', function ($translate, $scope) {
     $scope.pageSize = 2;
     $scope.currentPage = 1;
     $scope.reviews = [];
-    localStorage.setItem("Pref", langKey);
+//    localStorage.setItem("Pref", langKey);
     for (item in localStorage) {
 
         var newItem = localStorage[item];
@@ -74,7 +74,6 @@ app.controller('Ctrl', ['$translate', '$scope', function ($translate, $scope) {
 
 
             }]);
-
 app.filter('start', function () {
     return function (input, start) {
         if (!input || !input.length) {
