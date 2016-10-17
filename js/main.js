@@ -20,7 +20,7 @@ app.config(['$translateProvider', function ($translateProvider) {
     // add translation tables
     $translateProvider.translations('en', translationsEN);
     $translateProvider.translations('fr', translationsFR);
-    // $translateProvider.preferredLanguage('en');
+    $translateProvider.preferredLanguage('en');
     $translateProvider.useCookieStorage();
 
 }]);
