@@ -1,0 +1,13 @@
+<div>
+    <h1>Reviews</h1>
+    <select></select>
+    <div ng-repeat='key in reviews | start: (currentPage - 1) * pageSize | limitTo: pageSize'>
+        <p>{{key.review}}</p>
+        <p>By {{key.uname}} @ {{key.time | date}}</p>
+        <hr>
+    </div>
+
+    <pagination total-items="reviews.length" items-per-page="pageSize" ng-model="currentPage" max-size="5" ng-disabled="maxPages()" class="pagination-sm"></pagination>
+
+
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "Angular-ReviewApp",
+  "authors": [
+    "Jay Patel <pate0304@algonquinlive.com>"
+  ],
+  "description": "My Angular Review APP",
+  "main": "",
+  "keywords": [
+    "Angular"
+  ],
+  "license": "MIT",
+  "homepage": ""
+}
