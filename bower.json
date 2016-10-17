@@ -9,5 +9,8 @@
     "Angular"
   ],
   "license": "MIT",
-  "homepage": ""
+  "homepage": "",
+  "dependencies": {
+    "angular-translate-storage-cookie": "^2.12.1"
+  }
 }

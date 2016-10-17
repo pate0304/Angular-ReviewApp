@@ -1,6 +1,5 @@
 <div>
     <h1>Reviews</h1>
-    <select></select>
     <div ng-repeat='key in reviews | start: (currentPage - 1) * pageSize | limitTo: pageSize'>
         <p>{{key.review}}</p>
         <p>By {{key.uname}} @ {{key.time | date}}</p>

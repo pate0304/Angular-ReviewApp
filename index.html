@@ -4,39 +4,63 @@
 <head>
     <title>REVIEWER</title>
 
+
+    <script src="https://cdn.rawgit.com/SlexAxton/messageformat.js/v0.3.0/messageformat.js">
+
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-cookies.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-sanitize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.10.0/angular-translate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-interpolation-messageformat/2.10.0/angular-translate-interpolation-messageformat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-cookie/2.10.0/angular-translate-storage-cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-local/2.10.0/angular-translate-storage-local.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.10.0/angular-translate-loader-url.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.10.0/angular-translate-loader-static-files.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-handler-log/2.10.0/angular-translate-handler-log.js"></script>
+    <script src="js/main.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+    <!--
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-translate/angular-translate.min.js"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+-->
+
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body ng-app="myApp">
-    <h1 align="center ">REVIEWR</h1>
+<body ng-app="myApp" ng-init="langkey= 'en'">
+    <h1 class="title" align="center ">REVIEWR</h1>
 
 
 
 
     <div align="center" ng-controller="Ctrl ">
-        <button ng-click="changeLanguage( 'fr') " translate="BUTTON_LANG_FR "></button>
-        <button ng-click="changeLanguage( 'en') " translate="BUTTON_LANG_EN "></button>
-
-        <form ng-model="submitform " name="review ">
-            <p>{{ 'username' | translate }}:&nbsp;&nbsp;&nbsp;&nbsp;
-                <input ng-model="uname" type="text " name="uname " required/>*
+        <div class="container" style="margin-bottom:10px">
+            <button ng-click="changeLanguage( 'fr') " translate="BUTTON_LANG_FR "></button>
+            <button ng-click="changeLanguage( 'en') " translate="BUTTON_LANG_EN "></button>
+        </div>
+        <form ng-model="submitform " name="R" class="container">
+            <p>{{ 'username' | translate }}:
+                <input ng-model="uname" type="text " name="uname " required/><span ng-show="R.uname.$error.required ">*  NAME Required</span>
             </p>
-
-            <span ng-show=" review.$dirty && review.name.$error.required ">*  NAME Required</span>
-
             <p>{{ 'writereview' | translate }}:
-                <input ng-model="review" ng-minlength="5 " ng-maxlength="255 " required placeholder="Enter Description" />*
+                <input ng-model="review" name="review" ng-minlength="5 " ng-maxlength="255 " required/>*
                 <span>{{review.length}}</span>
-                <span ng-show="review.text.$dirty && review.text.$error.required ">* Required</span>
-                <span ng-show="review.text.$dirty && review.text.$error.minlength "> Enter review!!!<br><br></span>
-                <span ng-show="review.text.$dirty && review.text.$error.maxlength ">Max count 255 for reviews.</span>
+                <span ng-show="R.review.$dirty && R.review.$error.required ">* Write Review</span>
+                <span ng-show="R.review.$dirty && R.review.$error.minlength "> Minimum length is 5!!!<br><br></span>
+                <span ng-show="R.review.$dirty && R.review.$error.maxlength ">Max count 255 for reviews.</span>
             </p>
 
-            <button ng-click="submit(uname ,review) " type="submit " name="submit " ng-disabled="review.$invalid ">{{ 'submit' | translate }}</button>
+            <button ng-click="submit(uname ,review) " type="submit " name="submit " ng-disabled="R.$invalid ">{{ 'submit' | translate }}</button>
             <div ng-include=" 'PAGES/review.html' " ng-show="show "></div>
 
 
